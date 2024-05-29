@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/Assets/BG1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #DFF5FF;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    max-width: 80%; 
+    margin: 0 auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin-bottom: 20px ;
+    display: flex;
+}
+
+.card-body {
+    padding: 0; 
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold; 
+}
+
+.button-primary {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #76ABAE;
+    color: white;
+    border: 2px solid #76ABAE;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.button-primary:hover {
+    background-color: #DFF5FF;
+    color: #76ABAE;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.form-control-file {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #76ABAE;
+    color: #ffff;
+    padding: 10px 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: left;
+    padding: 1rem;
+}
+
+nav h1 {
+    margin: 0;
+}
+
+header {
+    background-image: url('/Assets/BG1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.profile {
+    padding: 0.3rem;
+    background-color: #76ABAE;
+    border-radius: 1rem;
+    margin: 1rem;
+    color: white;
+}
+
+.quotes {
+    font-style: italic;
+    color: #666;
+}
+
+footer {
+    background-color: #76ABAE;
+    color: #ffff;
+    text-align: center;
+    padding: 3px 0;
+    margin-top: auto;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #76ABAE;
+    border-color: #76ABAE;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 2px solid #76ABAE;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+}
+label[for="gambar"] {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #76ABAE;
+    border-color: #561C24;
+}
+
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #561C24;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* RESPONSIF SEBISANYA */
+
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 80%; 
+    }
+
+    .button-primary {
+        width: 80%;
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 10px; 
+    }
+
+    .button-primary {
+        font-size: 14px;
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+        font-size: 14px; /
+    }
+
+    label {
+        font-size: 14px; 
+    }
+}
+
