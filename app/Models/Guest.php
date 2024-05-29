@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Guest extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'room_id',
+        'image',
+        'nama_tamu'
+    ];
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }
