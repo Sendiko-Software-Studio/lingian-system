@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guest;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -11,7 +13,10 @@ class GuestController extends Controller
      */
     public function index()
     {
-        //
+        $guests = Guest::all();
+        $title = 'List Tamu';
+        $data = ['title' => $title];
+        return view('admin.guest.index', compact('guests'), $data);
     }
 
     /**
@@ -19,7 +24,10 @@ class GuestController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Input Tamu";
+        $data = ['title' => $title];
+        $rooms = Room::all();
+        return view('admin.guest.create', $data, compact('rooms'));
     }
 
     /**
@@ -27,7 +35,15 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Guest::create([
+            'room_id' => $request->room_number,
+            'nama_tamu' => $request->guest_name1
+        ]);
+        Guest::create([
+            'room_id' => $request->room_number,
+            'nama_tamu' => $request->guest_name2
+        ]);
+        return redirect()->route('admin.guests.index');
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Guest;
+use App\Models\Room;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $guests = Guest::all();
+        $totalGuest = sizeof($guests);
+        $rooms = Room::all();
+        $totalRoom = sizeof($rooms);
+        $title = 'Dashboard';
+        $data = ['totalGuest' => $totalGuest, 'totalRoom' => $totalRoom, 'title' => $title];
+        return view('admin.home', $data);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -11,7 +12,9 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::all();
+        $title = 'List Kamar';
+        return view('admin.room.index', compact('rooms'), ['title' => $title]);
     }
 
     /**
@@ -19,7 +22,9 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Input Kamar";
+        $data = ['title' => $title];
+        return view('admin.room.create', $data);
     }
 
     /**
@@ -27,7 +32,10 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Room::create([
+            'number' => $request->room_number
+        ]);
+        return redirect()->route('admin.rooms.index');
     }
 
     /**
