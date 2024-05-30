@@ -12,7 +12,8 @@ class Guest extends Model
     protected $fillable = [
         'room_id',
         'image',
-        'nama_tamu'
+        'nama_tamu',
+        'status'
     ];
 
     public function room()
