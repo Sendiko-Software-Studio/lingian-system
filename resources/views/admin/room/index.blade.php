@@ -9,13 +9,13 @@
             </a>
         </div>
         @if (sizeOf($rooms) > 0)
-            <table class="table table-light table-striped table-bordered">
-                <thead class="thead-dark">
+            <table class="table table-light table-striped table-bordered table-responsive">
+                <thead>
                     <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Nomer Kamar</th>
-                        <th scope="col">Tamu</th>
-                        <th scope="cole">Aksi</th>
+                        <th class="bg-dark col-1" style="color: white">No.</th>
+                        <th class="bg-dark col-2" style="color: white">Nomer Kamar</th>
+                        <th class="bg-dark col-5" style="color: white">Tamu</th>
+                        <th class="bg-dark col-md-2" style="color: white">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,15 +23,22 @@
                         <tr>
                             <td>{{ $i++ }}</td>
                             <td>{{ $room->number }}</td>
-                            <td>
+                            <td class="d-flex flex-row">
                                 @forelse ($room->guests as $guest)
-                                    <p>{{ $guest->nama_tamu }}</p>
+                                    <p class="pe-1">{{ $guest->nama_tamu }}, </p>
                                 @empty
                                     <p>Ruangan kosong.</p>
                                 @endforelse
                             </td>
-                            <td class="overview-wrap">
-                                <a href="#" class="btn btn-danger">Hapus</a>
+                            <td>
+                                <a href="#" class="btn btn-danger overview-wrap ms-1">
+                                    <i class="fa fa-remove" aria-hidden="true"></i>
+                                    Hapus
+                                </a>
+                                <a href="#" class="btn btn-info overview-wrap mx-1">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                    Edit
+                                </a>
                             </td>
                         </tr>
                     @endforeach
