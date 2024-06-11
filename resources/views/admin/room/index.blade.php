@@ -9,13 +9,13 @@
             </a>
         </div>
         @if (sizeOf($rooms) > 0)
-            <table class="table table-light table-striped table-bordered table-responsive">
+            <table class="table table-light table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th class="bg-dark col-1" style="color: white">No.</th>
                         <th class="bg-dark col-2" style="color: white">Nomer Kamar</th>
                         <th class="bg-dark col-5" style="color: white">Tamu</th>
-                        <th class="bg-dark col-md-2" style="color: white">Aksi</th>
+                        <th class="bg-dark col-md-1 text-center" style="color: white">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,11 +31,12 @@
                                 @endforelse
                             </td>
                             <td>
-                                <a href="#" class="btn btn-danger overview-wrap ms-1">
+                                <a href="{{ route('admin.room.delete', $room->id) }}" class="btn btn-danger overview-wrap ms-1 w-100">
                                     <i class="fa fa-remove" aria-hidden="true"></i>
                                     Hapus
                                 </a>
-                                <a href="#" class="btn btn-info overview-wrap mx-1">
+                                <div class="p-1"></div>
+                                <a href="{{ route('admin.room.edit', $room->id) }}" class="btn btn-info overview-wrap mx-1 w-100">
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                     Edit
                                 </a>
