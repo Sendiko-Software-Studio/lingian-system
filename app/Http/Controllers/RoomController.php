@@ -51,7 +51,12 @@ class RoomController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $title = "Edit Kamar";
+        $data = ['title' => $title];
+
+        $room = Room::findOrFail($id);
+        $guests = $room->guests;
+        return view('admin.room.edit', compact('guests', 'room'), $data);
     }
 
     /**
@@ -59,7 +64,9 @@ class RoomController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $room = Room::update($request->all());
+
+        return view('admin.room.index');
     }
 
     /**
@@ -67,6 +74,8 @@ class RoomController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Room::destroy($id);
+
+        return redirect()->route('admin.rooms.index');
     }
 }

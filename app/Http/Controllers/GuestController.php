@@ -37,11 +37,13 @@ class GuestController extends Controller
     {
         Guest::create([
             'room_id' => $request->room_number,
-            'nama_tamu' => $request->guest_name1
+            'nama_tamu' => $request->guest_name1,
+            'status' => $request->status1
         ]);
         Guest::create([
             'room_id' => $request->room_number,
-            'nama_tamu' => $request->guest_name2
+            'nama_tamu' => $request->guest_name2,
+            'status' => $request->status2
         ]);
         return redirect()->route('admin.guests.index');
     }
@@ -67,7 +69,10 @@ class GuestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $guest = Guest::findOrFail($id);
+        $guest->update(['status' => 'SUDAH']);
+
+        return redirect()->route('admin.guests.index');
     }
 
     /**
@@ -75,6 +80,8 @@ class GuestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Guest::destroy($id);
+
+        return redirect()->back();
     }
 }
