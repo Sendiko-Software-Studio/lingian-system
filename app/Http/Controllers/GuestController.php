@@ -69,7 +69,10 @@ class GuestController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $guest = Guest::findOrFail($id);
+        $guest->update(['status' => 'SUDAH']);
+
+        return redirect()->route('admin.guests.index');
     }
 
     /**
@@ -77,6 +80,8 @@ class GuestController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Guest::destroy($id);
+
+        return redirect()->back();
     }
 }
