@@ -13,6 +13,7 @@ Route::get('/room', [PublicController::class, 'index'])->name('room.index');
 Route::get('/room/{id}', [PublicController::class, 'show'])->name('room.show');
 Route::get('/room/{id}/edit', [PublicController::class, 'edit'])->name('room.edit'); 
 Route::post('/room/{id}/update', [PublicController::class, 'update'])->name('room.update');
+Route::get('/video_feed', function () { return view('public.videofeed'); } );
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     
